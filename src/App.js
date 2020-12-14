@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import cityList from './city.list.min.json'
 class App extends Component {
   state = {
     user: "",
@@ -46,6 +46,9 @@ class App extends Component {
           Remember me
         </label>
         <button type="submit">Sign In</button>
+        {cityList.map((data,index)=>{
+return <p>{data.name} - {data.country}</p>
+        })}
       </form>
     );
   }
