@@ -1,55 +1,42 @@
 import React, { Component } from "react";
-import cityList from './city.list.min.json'
+import cityList from "./city.list.min.json";
+import { TextField } from "@material-ui/core";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+// import ComboBox from "./test";
+
 class App extends Component {
   state = {
     user: "",
     rememberMe: false,
+    towns: [],
   };
 
   componentDidMount() {
-    const rememberMe = localStorage.getItem("rememberMe") === "true";
-    const user = rememberMe ? localStorage.getItem("user") : "";
-    this.setState({ user, rememberMe });
+    cityList.map(({ name, country }) => {
+      if (country === "MY") {
+        this.setState((prevState) => ({
+          towns: [...prevState.towns, name],
+        }));
+      }
+      return null;
+    });
   }
 
-  handleChange = (event) => {
-    const input = event.target;
-    const value = input.type === "checkbox" ? input.checked : input.value;
-
-    this.setState({ [input.name]: value });
-  };
-
-  handleFormSubmit = () => {
-    const { user, rememberMe } = this.state;
-    localStorage.setItem("rememberMe", rememberMe);
-    localStorage.setItem("user", rememberMe ? user : "");
-  };
-
   render() {
+    const { towns } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>
-          User:{" "}
-          <input
-            name="user"
-            value={this.state.user}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          <input
-            name="rememberMe"
-            checked={this.state.rememberMe}
-            onChange={this.handleChange}
-            type="checkbox"
-          />{" "}
-          Remember me
-        </label>
-        <button type="submit">Sign In</button>
-        {cityList.map((data,index)=>{
-return <p>{data.name} - {data.country}</p>
-        })}
-      </form>
+      <div>
+        <h1>test</h1>
+        <Autocomplete
+          id="combo-box-demo"
+          options={towns}
+          getOptionLabel={(option) => option}
+          style={{ width: 300 }}
+          renderInput={(params) => (
+            <TextField {...params} label="Combo box" variant="outlined" />
+          )}
+        />
+      </div>
     );
   }
 }
