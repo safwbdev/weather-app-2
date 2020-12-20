@@ -3,6 +3,8 @@ import cityList from "./city.list.min.json";
 import { TextField } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import DataDisplay from "./DataDisplay";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const API_KEY = process.env.REACT_APP_KEY;
 
 class App extends Component {
@@ -38,7 +40,7 @@ class App extends Component {
     // `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${this.state.units}&appid=${API_KEY}`
     try {
       const api_call = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}`
+        `http://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
       );
       const response = await api_call.json();
       console.log(response);

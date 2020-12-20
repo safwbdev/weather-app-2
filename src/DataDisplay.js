@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "./Slider";
+import WeatherSlider from "./WeatherSlider";
 export default function DataDisplay({ data }) {
   // base: "stations"
   // clouds: {all: 20}
@@ -69,7 +69,7 @@ export default function DataDisplay({ data }) {
       <h2>{temp_max}</h2>
       <h2>{pressure}</h2> */}
       <h2>{name}</h2>
-      <Slider data={list} />
+      <WeatherSlider getData={list} />
     </div>
   );
 }
