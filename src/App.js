@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import cityList from "./city.list.min.json";
 import { TextField } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-
-// api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+import DataDisplay from "./DataDisplay";
 const API_KEY = process.env.REACT_APP_KEY;
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      units: "metric",
       towns: [],
+      weatherData: null,
       selectedTown: null,
     };
   }
@@ -30,21 +31,28 @@ class App extends Component {
     this.setState({
       selectedTown: values,
     });
-    this.getWeather();
+    this.getWeather(values);
   };
 
-  getWeather = async () => {
-    const api_call = await fetch(
-      // `http://api.openweathermap.org/data/2.5/weather?q=London,UK&appid=${API_KEY}`
-      `http://api.openweathermap.org/data/2.5/weather?q=${this.state.selectedTown}&appid=${API_KEY}`
-    );
-    const response = await api_call.json();
-
-    console.log(response);
+  getWeather = async (location) => {
+    // `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${this.state.units}&appid=${API_KEY}`
+    try {
+      const api_call = await fetch(
+        `http://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API_KEY}`
+      );
+      const response = await api_call.json();
+      console.log(response);
+      this.setState({
+        weatherData: response,
+      });
+    } catch (e) {
+      console.log("erroe", e);
+    }
   };
 
   render() {
-    const { towns, selectedTown } = this.state;
+    const { towns, weatherData } = this.state;
+
     return (
       <div>
         <Autocomplete
@@ -57,7 +65,11 @@ class App extends Component {
             <TextField {...params} label="Combo box" variant="outlined" />
           )}
         />
-        <h1>{selectedTown}</h1>
+        {weatherData ? (
+          <DataDisplay data={weatherData} />
+        ) : (
+          <h3>Select a town</h3>
+        )}
       </div>
     );
   }
