@@ -20,9 +20,9 @@ const WeatherSlider = ({ getData }) => {
       {
         breakpoint: 567,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.3,
           slidesToScroll: 1,
-          centerMode: true,
+          // centerMode: true,
         },
       },
     ],
@@ -33,6 +33,8 @@ const WeatherSlider = ({ getData }) => {
         {getData &&
           getData.map((data, index) => {
             return <WeatherSlide key={index} data={data} />;
+            // console.log(data);
+            // return <p>{index}</p>;
           })}
       </Slider>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherSlider from "./WeatherSlider";
+import moment from "moment";
 export default function DataDisplay({ data }) {
   // base: "stations"
   // clouds: {all: 20}
@@ -58,18 +59,37 @@ export default function DataDisplay({ data }) {
   // }
 
   const { city, list } = data;
-  //   const { coord, country, name, population, sunrise, sunset, timezone } = city;
   const { name } = city;
-
+  let tempDay = "";
+  let initDate = new Date();
+  let today = initDate.getDate();
+  tempDay = parseInt(today);
+  let fullArray = [];
+  let getArrays = [];
   return (
     <div>
-      {/* <h2>{temp}</h2>
-      <h2>{feels_like}</h2>
-      <h2>{temp_min}</h2>
-      <h2>{temp_max}</h2>
-      <h2>{pressure}</h2> */}
       <h2>{name}</h2>
-      <WeatherSlider getData={list} />
+      <h5>{today}</h5>
+
+      {list &&
+        list.map((a, index) => {
+          if (tempDay === parseInt(moment(a.dt_txt).format("DD").toString())) {
+            getArrays = [...getArrays, a];
+            // return (
+            //   <p>
+            //     {a.dt_txt} - {tempDay}
+            //   </p>
+            // );
+          } else {
+            tempDay++;
+            fullArray = [...fullArray, getArrays];
+            getArrays = [];
+          }
+        })}
+
+      {console.log("TESTING")}
+      {console.log(fullArray)}
+      <WeatherSlider getData={fullArray} />
     </div>
   );
 }

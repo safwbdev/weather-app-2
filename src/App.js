@@ -43,7 +43,7 @@ class App extends Component {
         `http://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
       );
       const response = await api_call.json();
-      // console.log(response);
+      console.log(response);
       this.setState({
         weatherData: response,
       });
