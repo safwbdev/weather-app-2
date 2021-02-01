@@ -62,13 +62,10 @@ class App extends Component {
     // console.log(towns);
 
     return (
-      <div>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6">Weather</Typography>
-          </Toolbar>
-        </AppBar>
-        <div className="mainBody">
+      <div className="mainBody">
+        <AppBar position="static" color="transparent">
+          {/* <Toolbar> */}
+          {/* <Typography variant="h6">Weather</Typography> */}
           <Autocomplete
             id="combo-box-demo"
             options={towns}
@@ -84,13 +81,14 @@ class App extends Component {
               />
             )}
           />
-          <div className={weatherData ? "weatherBody" : "noBody"}>
-            {weatherData ? (
-              <DataDisplay data={weatherData} />
-            ) : (
-              <h3>Select an Area</h3>
-            )}
-          </div>
+          {/* </Toolbar> */}
+        </AppBar>
+        <div className={weatherData ? "weatherBody" : "noBody"}>
+          {weatherData ? (
+            <DataDisplay data={weatherData} />
+          ) : (
+            <h3>Select an Area</h3>
+          )}
         </div>
       </div>
     );

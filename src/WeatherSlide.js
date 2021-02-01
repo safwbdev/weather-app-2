@@ -15,7 +15,7 @@ export default function WeatherSlide({ data }) {
   );
   return (
     <div>
-      <Card>
+      <Card className="weatherCard">
         <CardHeader
           title={<Moment format="D MMMM">{currentDate}</Moment>}
           subheader={currentDesc}
@@ -24,7 +24,6 @@ export default function WeatherSlide({ data }) {
           <Typography variant="h3" component="h3">
             {currentTemp}
           </Typography>
-          {/* {currentImage} */}
         </CardContent>
         <CardContent>
           {data &&

@@ -41,6 +41,8 @@ code {
   /* border: 1px solid red; */
   text-align: center;
   text-transform: capitalize;
+  color: #ffffff !important;
+  padding-top: 20px;
 }
 .MuiCardHeader-root {
   padding-bottom: 0 !important;
@@ -50,6 +52,10 @@ code {
   display: flex;
   justify-content: center;
 }
+.currentDetails h3 {
+  /* border: 1px solid yellow; */
+  font-size: 1.9em;
+}
 .noBody {
   height: 90vh;
   display: flex;
@@ -58,16 +64,16 @@ code {
   color: #ffffff !important;
 }
 .mainBody {
-  background: #ad5389; /* fallback for old browsers */
+  background: #000046; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
-    #3c1053,
-    #ad5389
+    #1cb5e0,
+    #000046
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to bottom,
-    #3c1053,
-    #ad5389
+    #1cb5e0,
+    #000046
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .weatherBody {
@@ -78,6 +84,7 @@ code {
 }
 .MuiFormControl-root {
   border: 1px solid #ffffff !important;
+  border-radius: 5px;
 }
 .MuiFormLabel-root {
   color: #ffffff !important;
@@ -86,5 +93,11 @@ code {
   color: #ffffff !important;
 }
 .MuiInputBase-input {
+  color: #ffffff !important;
+}
+
+.weatherCard {
+  background: none !important;
+  border: 1px solid #ffffff;
   color: #ffffff !important;
 }
