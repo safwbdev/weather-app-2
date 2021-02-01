@@ -16,7 +16,6 @@ code {
   align-items: center;
 }
 .temperatures {
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
 }
@@ -25,20 +24,22 @@ code {
   justify-content: space-between;
   align-items: center;
 }
-.weatherSlider .slick-slide {
-  /* border: 1px solid black; */
-  /* background: black; */
-  margin: 0 10px;
-}
 .weatherSlider .slick-track {
-  display: inline-flex;
+  display: flex;
 }
-.weatherSlider .slick-slide .MuiPaper-root {
-  /* background: black; */
-  /* color: #ffffff !important; */
+.weatherSlider .slick-track .slick-slide {
+  margin: 0 10px;
+  height: inherit;
+  border: 1px solid #ffffff !important;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.weatherSlider .slick-track .slick-slide .MuiPaper-root {
+  box-shadow: none;
 }
 .MuiCardHeader-subheader {
-  /* border: 1px solid red; */
   text-align: center;
   text-transform: capitalize;
   color: #ffffff !important;
@@ -53,7 +54,6 @@ code {
   justify-content: center;
 }
 .currentDetails h3 {
-  /* border: 1px solid yellow; */
   font-size: 1.9em;
 }
 .noBody {
@@ -64,7 +64,7 @@ code {
   color: #ffffff !important;
 }
 .mainBody {
-  /* height: 100vh; */
+  height: 100vh;
   background: #000046; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
@@ -84,7 +84,6 @@ code {
   color: #ffffff !important;
 }
 .MuiFormControl-root {
-  border: 1px solid #ffffff !important;
   border-radius: 5px;
 }
 .MuiFormLabel-root {
@@ -97,8 +96,10 @@ code {
   color: #ffffff !important;
 }
 
+.weatherBody {
+  padding: 15px 0;
+}
 .weatherCard {
   background: none !important;
-  border: 1px solid #ffffff;
   color: #ffffff !important;
 }

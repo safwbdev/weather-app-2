@@ -22,9 +22,9 @@ const WeatherSlider = ({ getData }) => {
       {
         breakpoint: 567,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.3,
           slidesToScroll: 1,
-          centerMode: true,
+          // centerMode: true,
         },
       },
     ],

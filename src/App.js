@@ -39,7 +39,6 @@ class App extends Component {
   };
 
   getWeather = async (location) => {
-    // `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${this.state.units}&appid=${API_KEY}`
     try {
       const api_call = await fetch(
         `http://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
