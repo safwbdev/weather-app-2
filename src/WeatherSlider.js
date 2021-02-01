@@ -5,6 +5,7 @@ import WeatherSlide from "./WeatherSlide";
 const WeatherSlider = ({ getData }) => {
   var settings = {
     dots: false,
+    dotsarrows: false,
     infinite: false,
     speed: 500,
     slidesToShow: 5.3,
@@ -20,20 +21,19 @@ const WeatherSlider = ({ getData }) => {
       {
         breakpoint: 567,
         settings: {
-          slidesToShow: 1.3,
+          slidesToShow: 1,
           slidesToScroll: 1,
-          // centerMode: true,
+          centerMode: true,
         },
       },
     ],
   };
   return (
     <div>
-      <Slider {...settings}>
+      <Slider {...settings} className="weatherSlider">
         {getData &&
           getData.map((data, index) => {
             return <WeatherSlide key={index} data={data} />;
-            // console.log(data);
             // return <p>{index}</p>;
           })}
       </Slider>

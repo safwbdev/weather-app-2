@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.slick-list,
+.slick-track {
+  touch-action: pan-y !important;
+}

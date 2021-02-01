@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import cityList from "./city.list.min.json";
-import { TextField } from "@material-ui/core";
+import { TextField, Typography, Toolbar } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import DataDisplay from "./DataDisplay";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { AppBar } from "@material-ui/core";
 const API_KEY = process.env.REACT_APP_KEY;
 
 class App extends Component {
@@ -30,10 +31,14 @@ class App extends Component {
   }
 
   onTownChange = (event, values) => {
-    this.setState({
-      selectedTown: values,
-    });
-    this.getWeather(values);
+    console.log("TESTING");
+    console.log(values);
+    if (values) {
+      this.setState({
+        selectedTown: values,
+      });
+      this.getWeather(values);
+    }
   };
 
   getWeather = async (location) => {
@@ -43,7 +48,7 @@ class App extends Component {
         `http://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
       );
       const response = await api_call.json();
-      console.log(response);
+      // console.log(response);
       this.setState({
         weatherData: response,
       });
@@ -54,24 +59,39 @@ class App extends Component {
 
   render() {
     const { towns, weatherData } = this.state;
+    // console.log(towns);
 
     return (
       <div>
-        <Autocomplete
-          id="combo-box-demo"
-          options={towns}
-          getOptionLabel={(option) => option}
-          onChange={this.onTownChange}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Combo box" variant="outlined" />
-          )}
-        />
-        {weatherData ? (
-          <DataDisplay data={weatherData} />
-        ) : (
-          <h3>Select a town</h3>
-        )}
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6">Weather</Typography>
+          </Toolbar>
+        </AppBar>
+        <div className="mainBody">
+          <Autocomplete
+            id="combo-box-demo"
+            options={towns}
+            getOptionLabel={(option) => option}
+            onChange={this.onTownChange}
+            disableClearable
+            className="comboBox"
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Select an Area"
+                variant="outlined"
+              />
+            )}
+          />
+          <div className={weatherData ? "weatherBody" : "noBody"}>
+            {weatherData ? (
+              <DataDisplay data={weatherData} />
+            ) : (
+              <h3>Select an Area</h3>
+            )}
+          </div>
+        </div>
       </div>
     );
   }

@@ -20,3 +20,71 @@ code {
   display: flex;
   align-items: center;
 }
+.hourRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weatherSlider .slick-slide {
+  /* border: 1px solid black; */
+  /* background: black; */
+  margin: 0 10px;
+}
+.weatherSlider .slick-track {
+  display: inline-flex;
+}
+.weatherSlider .slick-slide .MuiPaper-root {
+  /* background: black; */
+  /* color: #ffffff !important; */
+}
+.MuiCardHeader-subheader {
+  /* border: 1px solid red; */
+  text-align: center;
+  text-transform: capitalize;
+}
+.MuiCardHeader-root {
+  padding-bottom: 0 !important;
+}
+.currentDetails {
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+.noBody {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff !important;
+}
+.mainBody {
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #3c1053,
+    #ad5389
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.weatherBody {
+}
+.comboBox {
+  padding: 10px;
+  color: #ffffff !important;
+}
+.MuiFormControl-root {
+  border: 1px solid #ffffff !important;
+}
+.MuiFormLabel-root {
+  color: #ffffff !important;
+}
+.MuiSvgIcon-root {
+  color: #ffffff !important;
+}
+.MuiInputBase-input {
+  color: #ffffff !important;
+}
