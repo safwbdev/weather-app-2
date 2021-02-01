@@ -27,7 +27,7 @@ const WeatherSlide = ({ data }) => {
               const getTime = <Moment format="h A">{test.dt_txt}</Moment>;
               const getImage = (
                 <img
-                  src={`http://openweathermap.org/img/wn/${test.weather[0].icon}.png`}
+                  src={`https://openweathermap.org/img/wn/${test.weather[0].icon}.png`}
                   alt=""
                 />
               );
