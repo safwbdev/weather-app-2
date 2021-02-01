@@ -2,17 +2,12 @@ import React from "react";
 import { Card, CardContent, Typography, CardHeader } from "@material-ui/core/";
 import Moment from "react-moment";
 
-export default function WeatherSlide({ data }) {
-  // console.log(data);
-  const currentDate = data[0].dt_txt;
-  const currentTemp = data[0].main.feels_like + "°C";
-  const currentDesc = data[0].weather[0].description;
-  const currentImage = (
-    <img
-      src={`http://openweathermap.org/img/wn/${data[0].weather[0].icon}.png`}
-      alt=""
-    />
-  );
+const WeatherSlide = ({ data }) => {
+  const currentData = data[0];
+  const currentDate = currentData.dt_txt;
+  const currentTemp = currentData.main.feels_like + "°C";
+  const currentDesc = currentData.weather[0].description;
+
   return (
     <div>
       <Card className="weatherCard">
@@ -46,4 +41,5 @@ export default function WeatherSlide({ data }) {
       </Card>
     </div>
   );
-}
+};
+export default WeatherSlide;

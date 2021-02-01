@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import cityList from "./city.list.min.json";
-import { TextField, Typography, Toolbar } from "@material-ui/core";
+import { TextField, AppBar } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import DataDisplay from "./DataDisplay";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { AppBar } from "@material-ui/core";
 const API_KEY = process.env.REACT_APP_KEY;
 
 class App extends Component {
@@ -48,7 +45,6 @@ class App extends Component {
         `http://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
       );
       const response = await api_call.json();
-      // console.log(response);
       this.setState({
         weatherData: response,
       });
@@ -59,13 +55,10 @@ class App extends Component {
 
   render() {
     const { towns, weatherData } = this.state;
-    // console.log(towns);
 
     return (
       <div className="mainBody">
         <AppBar position="static" color="transparent">
-          {/* <Toolbar> */}
-          {/* <Typography variant="h6">Weather</Typography> */}
           <Autocomplete
             id="combo-box-demo"
             options={towns}
@@ -81,7 +74,6 @@ class App extends Component {
               />
             )}
           />
-          {/* </Toolbar> */}
         </AppBar>
         <div className={weatherData ? "weatherBody" : "noBody"}>
           {weatherData ? (

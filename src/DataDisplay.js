@@ -1,10 +1,8 @@
 import React from "react";
 import WeatherSlider from "./WeatherSlider";
 import moment from "moment";
-import { Typography } from "@material-ui/core";
-export default function DataDisplay({ data }) {
-  const { city, list } = data;
-  const { name } = city;
+
+const DataDisplay = ({ data: { list } }) => {
   let tempDay = "";
   let initDate = new Date();
   let today = initDate.getDate();
@@ -24,11 +22,9 @@ export default function DataDisplay({ data }) {
       }
     });
   return (
-    <div>
-      {/* <Typography variant="h5" component="h5">
-        {name}
-      </Typography> */}
+    <>
       <WeatherSlider getData={fullArray} />
-    </div>
+    </>
   );
-}
+};
+export default DataDisplay;
