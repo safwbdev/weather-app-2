@@ -41,7 +41,7 @@ class App extends Component {
   getWeather = async (location) => {
     try {
       const api_call = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${this.state.units}&appid=${API_KEY}`
       );
       const response = await api_call.json();
       this.setState({
