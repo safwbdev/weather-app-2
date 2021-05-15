@@ -3,6 +3,8 @@ import { Card, CardContent, Typography, CardHeader } from "@material-ui/core/";
 import Moment from "react-moment";
 
 const WeatherSlide = ({ data }) => {
+  console.log("WeatherSlide");
+  // console.log(data);
   const currentData = data[0];
   const currentDate = currentData.dt_txt;
   const currentTemp = currentData.main.feels_like + "°C";

@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import WeatherSlide from "./WeatherSlide";
 
 const WeatherSlider = ({ getData }) => {
+  console.log("WEATHER SLIDER");
+  // console.log(getData);
   var settings = {
     dots: false,
     dotsarrows: false,
