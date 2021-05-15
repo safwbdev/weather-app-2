@@ -28,8 +28,8 @@ class App extends Component {
   }
 
   onTownChange = (event, values) => {
-    console.log("TESTING");
-    console.log(values);
+    // console.log("TESTING");
+    // console.log(values);
     if (values) {
       this.setState({
         selectedTown: values,

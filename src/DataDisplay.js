@@ -9,7 +9,6 @@ const DataDisplay = ({ data: { list } }) => {
   tempDay = parseInt(today);
   let filter = [];
   let fullArray = [];
-  let getArrays = [];
 
   list &&
     list.map((a) => {
@@ -22,7 +21,6 @@ const DataDisplay = ({ data: { list } }) => {
       } else {
         tempDay++;
         fullArray = [...fullArray, filter];
-        getArrays = [];
         filter = [];
         return null;
       }
